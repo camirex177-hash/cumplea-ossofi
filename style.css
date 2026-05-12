@@ -1,0 +1,71 @@
+body {
+  font-family: 'Bree Serif', serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #ffe6f0, #ffd6e0, #ffcce0);
+  color: #4a2c2a;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Header romántico */
+header {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-bottom: 3px solid #d6336c;
+  box-shadow: 0 4px 15px rgba(214, 51, 108, 0.3);
+}
+
+header h1 {
+  font-size: 2.5em;
+  color: #d6336c;
+  margin: 0;
+}
+
+header p {
+  font-size: 1.2em;
+  color: #b03060;
+  margin-top: 10px;
+}
+
+/* Secciones */
+section {
+  padding: 40px 20px;
+  margin: 20px auto;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(214, 51, 108, 0.2);
+}
+
+/* Mensaje personal */
+#mensaje p {
+  font-size: 1.3em;
+  color: #4a2c2a;
+  line-height: 1.6;
+}
+
+/* Decoraciones flotantes */
+.decoracion::before,
+.decoracion::after {
+  content: "❤";
+  position: fixed;
+  font-size: 30px;
+  color: rgba(214, 51, 108, 0.4);
+  animation: flotar 10s infinite linear;
+}
+
+.decoracion::before {
+  left: 10%;
+  top: 0;
+}
+
+.decoracion::after {
+  right: 15%;
+  top: 0;
+}
+
+@keyframes flotar {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100vh); }
+}

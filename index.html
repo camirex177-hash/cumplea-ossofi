@@ -1,90 +1,151 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Álbum de Recuerdos</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Great+Vibes&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💕 Feliz Cumpleaños Mi Amor 💕</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Contenedor para el efecto de corazones -->
-  <div id="trail-container"></div>
+  <!-- Efecto de corazones en cursor -->
+  <div id="cursor-hearts"></div>
 
-  <div id="musica-contenedor">
-    <p>🎵 Dale play a nuestra canción:</p>
-    <audio id="musicaFondo" controls loop>
-      <source src="musica/tu-cancion.mp3" type="audio/mpeg">
+  <!-- ============================================================
+       SECCIÓN: REPRODUCTOR DE MÚSICA
+  ============================================================ -->
+  <div class="music-bar">
+    <span class="music-icon">🎵</span>
+    <span class="music-label">Nuestra canción</span>
+    <audio id="audio-bg" controls loop>
+      <source src="musica/tu-cancion.mp3" type="audio/mpeg" />
+      Tu navegador no soporta audio HTML5.
     </audio>
   </div>
 
-  <header>
-    <h1>💖 Nuestro Amor, Nuestra Historia 💖</h1>
-    <p>Un viaje de recuerdos que siempre vivirán en mi corazón</p>
+  <!-- ============================================================
+       SECCIÓN: ENCABEZADO / CONTADOR
+  ============================================================ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <h1 id="titulo-contador">Faltan...</h1>
+      <div id="contador" class="countdown-grid">
+        <div class="countdown-item">
+          <span id="dias">00</span>
+          <label>Días</label>
+        </div>
+        <div class="countdown-item">
+          <span id="horas">00</span>
+          <label>Horas</label>
+        </div>
+        <div class="countdown-item">
+          <span id="minutos">00</span>
+          <label>Minutos</label>
+        </div>
+        <div class="countdown-item">
+          <span id="segundos">00</span>
+          <label>Segundos</label>
+        </div>
+      </div>
+      <!-- Botón debug temporal -->
+      <button id="btn-debug" class="btn-debug" onclick="forzarDesbloqueo()">🔓 Debug: Ver contenido</button>
+    </div>
   </header>
 
-  <section id="countdown">
-    <h2 id="titulo-contador">Cuenta regresiva para el gran día</h2>
-    <div id="timer"></div>
-  </section>
-
-  <section id="mensaje">
+  <!-- ============================================================
+       SECCIÓN: MENSAJE CARTA
+  ============================================================ -->
+  <section class="seccion-mensaje">
     <div class="mensaje-card">
-      <h2>Mi mensaje para ti</h2>
-      <p>
-        Amor mio, cada día contigo es un regalo que va directo a mi corazon y mi alma. Este álbum es solo un reflejo de lo mucho que significas para mí. Aqui vas a encontrar algunas de nuestra aventuras que llevamos a lo largo de el año y medio que llevamos como pareja, te amo demasiado y quiero seguir a tu lado por mucho tiempo.💕
+      <p class="mensaje-texto">
+        Amor mío, cada día contigo es un regalo que va directo a mi corazón y mi alma.
+        Este álbum es solo un reflejo de lo mucho que significas para mí.
+        Aquí vas a encontrar algunas de nuestras aventuras que llevamos a lo largo del año y medio
+        que llevamos como pareja, te amo demasiado y quiero seguir a tu lado por mucho tiempo. 💕
       </p>
     </div>
   </section>
 
-  <div id="contenido-sorpresa" style="display: none;">
-    <section id="slideshow-familia">
-      <h2>Con familia y amigos</h2>
-      <div class="slideshow-container">
-        <!-- 10 fotos de familia -->
-        <img class="slide-familia active" src="img/familia1.jpg">
-        <img class="slide-familia" src="img/familia2.jpg">
-        <img class="slide-familia" src="img/familia3.jpg">
-        <img class="slide-familia" src="img/familia4.jpg">
-        <img class="slide-familia" src="img/familia5.jpg">
-        <img class="slide-familia" src="img/familia6.jpg">
-        <img class="slide-familia" src="img/familia7.jpg">
-        <img class="slide-familia" src="img/familia8.jpg">
-        <img class="slide-familia" src="img/familia9.jpg">
-        <img class="slide-familia" src="img/familia10.jpg">
+  <!-- ============================================================
+       CONTENIDO SORPRESA (oculto hasta que el contador llegue a 0)
+  ============================================================ -->
+  <div id="contenido-sorpresa">
+
+    <!-- ---- CARRUSEL: FAMILIA ---- -->
+    <section class="seccion-carrusel">
+      <h2 class="seccion-titulo">📸 Nuestra Familia</h2>
+      <div class="carrusel-wrapper" id="carrusel-familia">
+        <button class="carrusel-btn prev" onclick="moverCarrusel('familia', -1)">&#10094;</button>
+        <div class="carrusel-track-container">
+          <div class="carrusel-track" id="track-familia">
+            <div class="carrusel-slide"><img src="img/familia1.jpg"  alt="Familia 1"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/familia2.jpg"  alt="Familia 2"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/familia3.jpg"  alt="Familia 3"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/familia4.jpg"  alt="Familia 4"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/familia5.jpg"  alt="Familia 5"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/familia6.jpg"  alt="Familia 6"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/familia7.jpg"  alt="Familia 7"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/familia8.jpg"  alt="Familia 8"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/familia9.jpg"  alt="Familia 9"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/familia10.jpg" alt="Familia 10" loading="lazy" /></div>
+          </div>
+        </div>
+        <button class="carrusel-btn next" onclick="moverCarrusel('familia', 1)">&#10095;</button>
+      </div>
+      <!-- Indicadores -->
+      <div class="carrusel-dots" id="dots-familia"></div>
+    </section>
+
+    <!-- ---- CARRUSEL: NOSOTROS ---- -->
+    <section class="seccion-carrusel">
+      <h2 class="seccion-titulo">💑 Nosotros</h2>
+      <div class="carrusel-wrapper" id="carrusel-nosotros">
+        <button class="carrusel-btn prev" onclick="moverCarrusel('nosotros', -1)">&#10094;</button>
+        <div class="carrusel-track-container">
+          <div class="carrusel-track" id="track-nosotros">
+            <div class="carrusel-slide"><img src="img/nosotros1.jpg"  alt="Nosotros 1"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/nosotros2.jpg"  alt="Nosotros 2"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/nosotros3.jpg"  alt="Nosotros 3"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/nosotros4.jpg"  alt="Nosotros 4"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/nosotros5.jpg"  alt="Nosotros 5"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/nosotros6.jpg"  alt="Nosotros 6"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/nosotros7.jpg"  alt="Nosotros 7"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/nosotros8.jpg"  alt="Nosotros 8"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/nosotros9.jpg"  alt="Nosotros 9"  loading="lazy" /></div>
+            <div class="carrusel-slide"><img src="img/nosotros10.jpg" alt="Nosotros 10" loading="lazy" /></div>
+          </div>
+        </div>
+        <button class="carrusel-btn next" onclick="moverCarrusel('nosotros', 1)">&#10095;</button>
+      </div>
+      <!-- Indicadores -->
+      <div class="carrusel-dots" id="dots-nosotros"></div>
+    </section>
+
+    <!-- ---- VIDEOS ESPECIALES ---- -->
+    <section class="seccion-videos">
+      <h2 class="seccion-titulo">🎬 Videos Especiales</h2>
+      <div class="videos-grid">
+        <div class="video-card">
+          <video id="video1" controls preload="metadata">
+            <source src="videos/video1.mp4" type="video/mp4" />
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+        <div class="video-card">
+          <video id="video2" controls preload="metadata">
+            <source src="videos/video2.mp4" type="video/mp4" />
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
       </div>
     </section>
 
-    <section id="slideshow-nosotros">
-      <h2>Conmigo</h2>
-      <div class="slideshow-container">
-        <!-- 10 fotos de nosotros -->
-        <img class="slide-nosotros active" src="img/nosotros1.jpg">
-        <img class="slide-nosotros" src="img/nosotros2.jpg">
-        <img class="slide-nosotros" src="img/nosotros3.jpg">
-        <img class="slide-nosotros" src="img/nosotros4.jpg">
-        <img class="slide-nosotros" src="img/nosotros5.jpg">
-        <img class="slide-nosotros" src="img/nosotros6.jpg">
-        <img class="slide-nosotros" src="img/nosotros7.jpg">
-        <img class="slide-nosotros" src="img/nosotros8.jpg">
-        <img class="slide-nosotros" src="img/nosotros9.jpg">
-        <img class="slide-nosotros" src="img/nosotros10.jpg">
-      </div>
-    </section>
+  </div><!-- /#contenido-sorpresa -->
 
-    <section id="videos">
-      <h2>Videos especiales</h2>
-      <div class="video-container">
-        <video class="video-especial" controls>
-          <source src="videos/video1.mp4" type="video/mp4">
-        </video>
-        <video class="video-especial" controls>
-          <source src="videos/video2.mp4" type="video/mp4">
-        </video>
-      </div>
-    </section>
-  </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Hecho con todo mi amor 💕</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>

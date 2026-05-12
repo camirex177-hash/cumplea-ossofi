@@ -1,7 +1,7 @@
 /* ============================================================
    SCRIPT PRINCIPAL — Aniversario / Cumpleaños
    Funcionalidades:
-     1. Contador regresivo hasta el 20 de mayo de 2026
+     1. Contador regresivo hasta el 17 de mayo de 2026
      2. Carruseles (Familia y Nosotros) con indicadores
      3. Música inteligente (pausa/reanuda con videos)
      4. Efecto de corazones en el cursor
@@ -15,7 +15,7 @@
 ============================================================ */
 
 // Fecha objetivo: 20 de mayo de 2026, 00:00:00 hora local
-const FECHA_OBJETIVO = new Date('2026-05-17 00:00:00');
+const FECHA_OBJETIVO = new Date('2026-05-17T00:00:00');
 
 const elDias     = document.getElementById('dias');
 const elHoras    = document.getElementById('horas');

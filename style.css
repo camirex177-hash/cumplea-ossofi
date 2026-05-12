@@ -1,71 +1,76 @@
 body {
-  font-family: 'Bree Serif', serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #ffe6f0, #ffd6e0, #ffcce0);
-  color: #4a2c2a;
-  text-align: center;
-  overflow-x: hidden;
+    font-family: 'Bree Serif', serif;
+    background: linear-gradient(135deg, #fff0f3 0%, #ffdde1 100%);
+    color: #5c0a1a;
+    margin: 0;
+    overflow-x: hidden;
+    text-align: center;
 }
 
-/* Header romántico */
 header {
-  background: rgba(255, 255, 255, 0.8);
-  padding: 30px;
-  border-bottom: 3px solid #d6336c;
-  box-shadow: 0 4px 15px rgba(214, 51, 108, 0.3);
+    background: #ff4d6d;
+    color: white;
+    padding: 40px 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
 }
 
-header h1 {
-  font-size: 2.5em;
-  color: #d6336c;
-  margin: 0;
+/* Estilo del cuadro del mensaje */
+.mensaje-card {
+    background: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(255, 77, 109, 0.2);
+    border: 3px solid #ff4d6d;
+    line-height: 1.8;
 }
 
-header p {
-  font-size: 1.2em;
-  color: #b03060;
-  margin-top: 10px;
+#timer {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff4d6d;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Secciones */
-section {
-  padding: 40px 20px;
-  margin: 20px auto;
-  max-width: 900px;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(214, 51, 108, 0.2);
+/* Estilo de los carruseles */
+.slideshow-container {
+    position: relative;
+    width: 90%;
+    max-width: 750px;
+    height: 750px;
+    margin: 25px auto;
+    overflow: hidden;
+    border-radius: 25px;
+    border: 8px solid white;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    background-color: #ffe5ec;
 }
 
-/* Mensaje personal */
-#mensaje p {
-  font-size: 1.3em;
-  color: #4a2c2a;
-  line-height: 1.6;
+.slideshow-container img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
 }
 
-/* Decoraciones flotantes */
-.decoracion::before,
-.decoracion::after {
-  content: "❤";
-  position: fixed;
-  font-size: 30px;
-  color: rgba(214, 51, 108, 0.4);
-  animation: flotar 10s infinite linear;
+.slideshow-container img.active { opacity: 1; }
+
+/* Estilo de los corazones que siguen al mouse */
+.heart-trail {
+    position: fixed;
+    pointer-events: none;
+    color: #ff4d6d;
+    font-size: 20px;
+    animation: fadeUp 1s forwards;
+    z-index: 9999;
 }
 
-.decoracion::before {
-  left: 10%;
-  top: 0;
-}
-
-.decoracion::after {
-  right: 15%;
-  top: 0;
-}
-
-@keyframes flotar {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(100vh); }
+@keyframes fadeUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-50px) scale(1.5); opacity: 0; }
 }

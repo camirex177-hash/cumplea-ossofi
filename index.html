@@ -5,81 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Álbum de Recuerdos</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header romántico -->
+
+  <!-- Contenedor para el efecto de corazones -->
+  <div id="trail-container"></div>
+
+  <div id="musica-contenedor">
+    <p>🎵 Dale play a nuestra canción:</p>
+    <audio id="musicaFondo" controls loop>
+      <source src="musica/tu-cancion.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
   <header>
     <h1>💖 Nuestro Amor, Nuestra Historia 💖</h1>
     <p>Un viaje de recuerdos que siempre vivirán en mi corazón</p>
   </header>
 
-  <!-- Contador -->
   <section id="countdown">
-    <h2>Cuenta regresiva para el gran día</h2>
+    <h2 id="titulo-contador">Cuenta regresiva para el gran día</h2>
     <div id="timer"></div>
   </section>
 
-  <!-- Espacio para tu mensaje -->
   <section id="mensaje">
-    <h2>Mi mensaje para ti</h2>
-    <p>
-      <!-- Aquí escribes tu mensaje personal -->
-      Amor mio, cada día contigo es un regalo que va directo a mi corazon y mi alma. Este álbum es solo un reflejo de lo mucho que significas para mí. Aqui vas a encontrar algunas de nuestra aventuras que llevamos a lo largo de el año y medio que llevamos como pareja, te amo demasiado y quiero seguir a tu lado por mucho tiempo.💕
-    </p>
-  </section>
-
-    <!-- Slideshow 1: Familia y amigos -->
-  <section id="slideshow-familia">
-    <h2>Con familia y amigos</h2>
-    <div class="slideshow-container" id="familia-container">
-      <img class="slide-familia" src="img/familia1.jpg" alt="Familia 1">
-      <img class="slide-familia" src="img/familia2.jpg" alt="Familia 2">
-      <img class="slide-familia" src="img/familia3.jpg" alt="Familia 3">
-      <img class="slide-familia" src="img/familia4.jpg" alt="Familia 4">
-      <img class="slide-familia" src="img/familia5.jpg" alt="Familia 5">
-      <img class="slide-familia" src="img/familia6.jpg" alt="Familia 6">
-      <img class="slide-familia" src="img/familia7.jpg" alt="Familia 7">
-      <img class="slide-familia" src="img/familia8.jpg" alt="Familia 8">
-      <img class="slide-familia" src="img/familia9.jpg" alt="Familia 9">
-      <img class="slide-familia" src="img/familia10.jpg" alt="Familia 10">
+    <div class="mensaje-card">
+      <h2>Mi mensaje para ti</h2>
+      <p>
+        Amor mio, cada día contigo es un regalo que va directo a mi corazon y mi alma. Este álbum es solo un reflejo de lo mucho que significas para mí. Aqui vas a encontrar algunas de nuestra aventuras que llevamos a lo largo de el año y medio que llevamos como pareja, te amo demasiado y quiero seguir a tu lado por mucho tiempo.💕
+      </p>
     </div>
   </section>
 
-  <!-- Slideshow 2: Fotos contigo -->
-  <section id="slideshow-nosotros">
-    <h2>Conmigo</h2>
-    <div class="slideshow-container" id="nosotros-container">
-      <img class="slide-nosotros" src="img/nosotros1.jpg" alt="Nosotros 1">
-      <img class="slide-nosotros" src="img/nosotros2.jpg" alt="Nosotros 2">
-      <img class="slide-nosotros" src="img/nosotros3.jpg" alt="Nosotros 3">
-      <img class="slide-nosotros" src="img/nosotros4.jpg" alt="Nosotros 4">
-      <img class="slide-nosotros" src="img/nosotros5.jpg" alt="Nosotros 5">
-      <img class="slide-nosotros" src="img/nosotros6.jpg" alt="Nosotros 6">
-      <img class="slide-nosotros" src="img/nosotros7.jpg" alt="Nosotros 7">
-      <img class="slide-nosotros" src="img/nosotros8.jpg" alt="Nosotros 8">
-      <img class="slide-nosotros" src="img/nosotros9.jpg" alt="Nosotros 9">
-      <img class="slide-nosotros" src="img/nosotros10.jpg" alt="Nosotros 10">
-    </div>
-  </section>
+  <div id="contenido-sorpresa" style="display: none;">
+    <section id="slideshow-familia">
+      <h2>Con familia y amigos</h2>
+      <div class="slideshow-container">
+        <!-- 10 fotos de familia -->
+        <img class="slide-familia active" src="img/familia1.jpg">
+        <img class="slide-familia" src="img/familia2.jpg">
+        <img class="slide-familia" src="img/familia3.jpg">
+        <img class="slide-familia" src="img/familia4.jpg">
+        <img class="slide-familia" src="img/familia5.jpg">
+        <img class="slide-familia" src="img/familia6.jpg">
+        <img class="slide-familia" src="img/familia7.jpg">
+        <img class="slide-familia" src="img/familia8.jpg">
+        <img class="slide-familia" src="img/familia9.jpg">
+        <img class="slide-familia" src="img/familia10.jpg">
+      </div>
+    </section>
 
-  <!-- Sección de videos -->
-  <section id="videos">
-    <h2>Videos especiales</h2>
-    <div class="video-container">
-      <video controls>
-        <source src="videos/video1.mp4" type="video/mp4">
-        Lo siento, tu navegador no puede reproducir este video.
-      </video>
-      <video controls>
-        <source src="videos/video2.mp4" type="video/mp4">
-        Lo siento, tu navegador no puede reproducir este video.
-      </video>
-    </div>
-  </section>
+    <section id="slideshow-nosotros">
+      <h2>Conmigo</h2>
+      <div class="slideshow-container">
+        <!-- 10 fotos de nosotros -->
+        <img class="slide-nosotros active" src="img/nosotros1.jpg">
+        <img class="slide-nosotros" src="img/nosotros2.jpg">
+        <img class="slide-nosotros" src="img/nosotros3.jpg">
+        <img class="slide-nosotros" src="img/nosotros4.jpg">
+        <img class="slide-nosotros" src="img/nosotros5.jpg">
+        <img class="slide-nosotros" src="img/nosotros6.jpg">
+        <img class="slide-nosotros" src="img/nosotros7.jpg">
+        <img class="slide-nosotros" src="img/nosotros8.jpg">
+        <img class="slide-nosotros" src="img/nosotros9.jpg">
+        <img class="slide-nosotros" src="img/nosotros10.jpg">
+      </div>
+    </section>
 
-  <!-- Decoraciones flotantes -->
-  <div class="decoracion"></div>
+    <section id="videos">
+      <h2>Videos especiales</h2>
+      <div class="video-container">
+        <video class="video-especial" controls>
+          <source src="videos/video1.mp4" type="video/mp4">
+        </video>
+        <video class="video-especial" controls>
+          <source src="videos/video2.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+  </div>
 
   <script src="script.js"></script>
 </body>

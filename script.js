@@ -15,7 +15,7 @@
 ============================================================ */
 
 // Fecha objetivo: 20 de mayo de 2026, 00:00:00 hora local
-const FECHA_OBJETIVO = new Date('2026-05-17T00:00:00');
+const FECHA_OBJETIVO = new Date('2026-05-17 00:00:00');
 
 const elDias     = document.getElementById('dias');
 const elHoras    = document.getElementById('horas');
